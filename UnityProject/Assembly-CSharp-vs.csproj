@@ -58,6 +58,10 @@
      <Compile Include="Assets\Script\CMUWrapper\KinectWrapper\KinectSensor.cs" />
      <Compile Include="Assets\Script\CMUWrapper\KinectWrapper\SkeletonWrapper.cs" />
      <Compile Include="Assets\Script\ColorSeperateBlend.cs" />
+     <Compile Include="Assets\Script\Game\GameController.cs" />
+     <Compile Include="Assets\Script\Game\Weapon&amp;DamageNumerical\IBullet.cs" />
+     <Compile Include="Assets\Script\Game\Weapon&amp;DamageNumerical\IDamageable.cs" />
+     <Compile Include="Assets\Script\Game\Weapon&amp;DamageNumerical\IWeapon.cs" />
      <Compile Include="Assets\Script\HeadTracker.cs" />
      <Compile Include="Assets\Script\KinectCoordinate.cs" />
      <Compile Include="Assets\Script\StereoDisplay.cs" />
