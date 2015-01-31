@@ -15,7 +15,7 @@ public interface IBullet{
 	float explosionRadius { get; }				// 爆炸半径
 
 	// 被击发
-	void onShot(float initialSpeed);
+	void onShot(float initialSpeed, Transform targetTrans);
 	// 伤害到目标
 	void onDamage(IDamageable victim);
 }
