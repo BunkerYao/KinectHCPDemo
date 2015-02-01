@@ -9,9 +9,10 @@ public interface IDamageable{
 	bool isAlive { get; }					// 是否存活
 	float defenseFactor { get; }			// 防护值因子
 	bool isHeavyArmored { get; }			// 是否是重装甲类型
+	bool isEnemy { get; }					// 是否是敌人
 
 	// 创生
-	void onSpawn();
+	void spawn(float initialHealth, bool isEnemy);
 	// 减少生命值
 	void decreaseHealth(float Value);		
 	// 立即杀死

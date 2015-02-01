@@ -6,7 +6,7 @@ using System.Collections;
 // ------------------------------------------------------
 public interface IBullet{
 	float baseDamage { get; }					// 基础伤害值
-
+	bool isPlayerBullet { get; }				// 是否是玩家的子弹
 	// 被击发
-	void onShot(float initialSpeed, Transform targetTrans);
+	void shot(bool isPlayerBullet);
 }

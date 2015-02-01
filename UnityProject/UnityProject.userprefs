@@ -1,12 +1,15 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Script\Game\Weapon&amp;DamageNumerical\RegularBullet.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Script\Game\Weapon&amp;DamageNumerical\Damageable.cs">
     <Files>
-      <File FileName="Assets\Script\Game\Weapon&amp;DamageNumerical\IWeapon.cs" Line="1" Column="1" />
-      <File FileName="Assets\Script\Game\GameController.cs" Line="1" Column="1" />
-      <File FileName="Assets\Script\Game\Weapon&amp;DamageNumerical\IBullet.cs" Line="1" Column="1" />
-      <File FileName="Assets\Script\Game\Weapon&amp;DamageNumerical\IDamageable.cs" Line="16" Column="35" />
-      <File FileName="Assets\Script\Game\Weapon&amp;DamageNumerical\RegularBullet.cs" Line="48" Column="42" />
+      <File FileName="Assets\Script\Game\Weapon&amp;DamageNumerical\IWeapon.cs" Line="20" Column="15" />
+      <File FileName="Assets\Script\Game\Weapon&amp;DamageNumerical\RegularBullet.cs" Line="21" Column="40" />
+      <File FileName="Assets\Script\Game\Weapon&amp;DamageNumerical\Damageable.cs" Line="67" Column="41" />
+      <File FileName="Assets\Script\Game\Weapon&amp;DamageNumerical\IDamageable.cs" Line="9" Column="23" />
+      <File FileName="Assets\Script\Game\Weapon&amp;DamageNumerical\Weapon.cs" Line="107" Column="3" />
+      <File FileName="Assets\Script\Game\Weapon&amp;DamageNumerical\IBullet.cs" Line="9" Column="32" />
+      <File FileName="Assets\Script\Game\Weapon&amp;DamageNumerical\Bullet.cs" Line="10" Column="31" />
+      <File FileName="Assets\Script\Game\Weapon&amp;DamageNumerical\EnemyGun.cs" Line="27" Column="21" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
