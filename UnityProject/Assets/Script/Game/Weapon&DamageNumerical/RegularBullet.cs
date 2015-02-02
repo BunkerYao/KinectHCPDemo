@@ -6,7 +6,6 @@ using System.Collections;
 // ------------------------------------------------------
 public class RegularBullet : Bullet {
 	private float m_speed;
-	private float m_lifeTime;
 	private bool m_infiniteSpeed;
 
 	/*
@@ -14,17 +13,17 @@ public class RegularBullet : Bullet {
 	 */
 	public float editBaseDamage;
 	public float editSpeed;
-	public float editLifeTime;
 	public bool editInfiniteSpeed;
 	public float editHeavyArmorDamagePercentage;
+	public float editLifeTime;
 
 	void Awake()
 	{
 		// Initialize attributes from editor 
 		m_baseDamage = editBaseDamage;
 		m_speed = editSpeed;
-		m_lifeTime = editLifeTime;
 		m_infiniteSpeed = editInfiniteSpeed;
+		m_lifeTime = editLifeTime;
 		// Turn on ccd because bullet moves fast
 		if (!m_infiniteSpeed)
 			rigidbody.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
@@ -41,7 +40,7 @@ public class RegularBullet : Bullet {
 			if (Physics.Raycast(transform.position, transform.forward, out hit)){
 				if (isValidTarget(hit.transform.tag)){
 					IDamageable victim = hit.transform.GetComponent<Damageable>();
-					if ((victim.isEnemy && isPlayerBullet) || (!victim.isEnemy && !isPlayerBullet))
+					if (notFriendlyFire(victim))
 						applyDamage(victim);
 					return;
 				}
@@ -71,17 +70,9 @@ public class RegularBullet : Bullet {
 		// When hit something
 		if (isValidTarget(collision.transform.tag)){
 			IDamageable victim = collision.transform.GetComponent<Damageable>();
-			if ((victim.isEnemy && isPlayerBullet) || (!victim.isEnemy && !isPlayerBullet))
+			if (notFriendlyFire(victim))
 				applyDamage(victim);
 		}
 		Destroy (gameObject);
 	}	
-
-	void Update()
-	{
-		m_lifeTime -= Time.deltaTime;
-		if (m_lifeTime <= 0.0f){
-			Destroy(gameObject);
-		}
-	}
 }

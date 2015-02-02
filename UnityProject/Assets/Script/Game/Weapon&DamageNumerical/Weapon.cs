@@ -14,7 +14,8 @@ public abstract class Weapon : MonoBehaviour, IWeapon {
 	protected int m_ammo;
 	protected float m_timeSinceLastShot;
 	protected float m_reloadingTimeCount;
-	protected bool m_isReloading;
+	private bool m_isReloading;
+	private bool m_isOverheat;
 	protected bool m_isPlayerWeapon;
 	private int m_newAmmoNumber;
 
@@ -37,7 +38,7 @@ public abstract class Weapon : MonoBehaviour, IWeapon {
 		get { return m_ammo; }
 	}
 	public bool isOverheat {
-		get { return m_heat >= 1.0f; }
+		get { return m_isOverheat; }
 	}
 	public bool isOut {
 		get { return m_ammo == 0; }
@@ -73,7 +74,7 @@ public abstract class Weapon : MonoBehaviour, IWeapon {
 		m_reloadingTime = editReloadingTime;
 		m_capacity = editCapacity;
 		m_isPlayerWeapon = editIsPlayerWeapon;
-		m_heat = 1.0f;
+		m_heat = 0.0f;
 		m_ammo = 0;
 		m_timeSinceLastShot = m_fireInterval + 1.0f;
 		m_reloadingTimeCount = 0.0f;
@@ -92,8 +93,9 @@ public abstract class Weapon : MonoBehaviour, IWeapon {
 		firedBullet.GetComponent<Bullet> ().shot (isPlayerWeapon);
 		// Update weapon state
 		m_heat += m_heatIncrement;
-		if (m_heat > 1.0f){ 
+		if (m_heat >= 1.0f){ 
 			m_heat = 1.0f;
+			m_isOverheat = true;
 			if (onOverheat != null)
 				onOverheat();
 		}
@@ -135,8 +137,10 @@ public abstract class Weapon : MonoBehaviour, IWeapon {
 		m_timeSinceLastShot += Time.deltaTime;
 		// Cool down
 		m_heat -= heatDecrement * Time.deltaTime;
-		if (m_heat < 0.0f)
+		if (m_heat <= 0.0f){
 			m_heat = 0.0f;
+			m_isOverheat = false;
+		}
 	}
 
 	// 射击事件

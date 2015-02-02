@@ -5,11 +5,11 @@
 	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
 	<ProductVersion>10.0.20506</ProductVersion>
 	<SchemaVersion>2.0</SchemaVersion>
-	<ProjectGuid>{5B580621-09B4-68CB-B5F4-5B9DD210A60F}</ProjectGuid>
+	<ProjectGuid>{5120E47E-05CF-77CB-C2BE-2B2453982161}</ProjectGuid>
 	<OutputType>Library</OutputType>
 	<AppDesignerFolder>Properties</AppDesignerFolder>
 	<RootNamespace></RootNamespace>
-	<AssemblyName>Assembly-CSharp</AssemblyName>
+	<AssemblyName>Assembly-UnityScript-firstpass</AssemblyName>
 	<TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
 	<FileAlignment>512</FileAlignment>
 	<BaseDirectory>Assets</BaseDirectory>
@@ -46,49 +46,13 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Script\CMUWrapper\KinectImgControllers\DisplayColor.cs" />
-     <Compile Include="Assets\Script\CMUWrapper\KinectImgControllers\DisplayDepth.cs" />
-     <Compile Include="Assets\Script\CMUWrapper\KinectModelControllers\KinectModelControllerV2.cs" />
-     <Compile Include="Assets\Script\CMUWrapper\KinectModelControllers\KinectPointController.cs" />
-     <Compile Include="Assets\Script\CMUWrapper\KinectWrapper\DepthWrapper.cs" />
-     <Compile Include="Assets\Script\CMUWrapper\KinectWrapper\DeviceOrEmulator.cs" />
-     <Compile Include="Assets\Script\CMUWrapper\KinectWrapper\KinectEmulator.cs" />
-     <Compile Include="Assets\Script\CMUWrapper\KinectWrapper\KinectInterop.cs" />
-     <Compile Include="Assets\Script\CMUWrapper\KinectWrapper\KinectRecorder.cs" />
-     <Compile Include="Assets\Script\CMUWrapper\KinectWrapper\KinectSensor.cs" />
-     <Compile Include="Assets\Script\CMUWrapper\KinectWrapper\SkeletonWrapper.cs" />
-     <Compile Include="Assets\Script\ColorSeperateBlend.cs" />
-     <Compile Include="Assets\Script\Game\GameController.cs" />
-     <Compile Include="Assets\Script\Game\Utilities\StateLabel.cs" />
-     <Compile Include="Assets\Script\Game\Weapon&amp;DamageNumerical\Bullet.cs" />
-     <Compile Include="Assets\Script\Game\Weapon&amp;DamageNumerical\CannonShell.cs" />
-     <Compile Include="Assets\Script\Game\Weapon&amp;DamageNumerical\Damageable.cs" />
-     <Compile Include="Assets\Script\Game\Weapon&amp;DamageNumerical\EnemyGun.cs" />
-     <Compile Include="Assets\Script\Game\Weapon&amp;DamageNumerical\IBullet.cs" />
-     <Compile Include="Assets\Script\Game\Weapon&amp;DamageNumerical\IDamageable.cs" />
-     <Compile Include="Assets\Script\Game\Weapon&amp;DamageNumerical\IWeapon.cs" />
-     <Compile Include="Assets\Script\Game\Weapon&amp;DamageNumerical\RegularBullet.cs" />
-     <Compile Include="Assets\Script\Game\Weapon&amp;DamageNumerical\Test\DamageableState.cs" />
-     <Compile Include="Assets\Script\Game\Weapon&amp;DamageNumerical\Test\TargetMove.cs" />
-     <Compile Include="Assets\Script\Game\Weapon&amp;DamageNumerical\Test\TestInput.cs" />
-     <Compile Include="Assets\Script\Game\Weapon&amp;DamageNumerical\Test\WeaponState.cs" />
-     <Compile Include="Assets\Script\Game\Weapon&amp;DamageNumerical\Weapon.cs" />
-     <Compile Include="Assets\Script\HeadTracker.cs" />
-     <Compile Include="Assets\Script\KinectCoordinate.cs" />
-     <Compile Include="Assets\Script\StereoDisplay.cs" />
-     <Compile Include="Assets\Script\StereoProjection.cs" />
+     <Compile Include="Assets\Standard Assets\Character Controllers\Sources\Scripts\CharacterMotor.js" />
+     <Compile Include="Assets\Standard Assets\Character Controllers\Sources\Scripts\FPSInputController.js" />
      <None Include="Assets\Asset\Shaders\Normal-Diffuse.shader" />
      <None Include="Assets\Asset\Shaders\ColorSeperateBlend.shader" />
- <Reference Include="Assembly-UnityScript-firstpass">
- <HintPath>E:/Unity3DWorkSpace/KinectHCPDemo/UnityProject/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
- </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.0/UnityEngine.UI.dll</HintPath>
  </Reference>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="Assembly-CSharp-firstpass-vs.csproj">
-      <Project>{FDE690F1-626F-FFA0-5754-E83120972A79}</Project>      <Name>Assembly-CSharp-firstpass-vs</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

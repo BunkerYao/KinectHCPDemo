@@ -25,7 +25,7 @@ public class EnemyGun : Weapon
 	{
 		initState ();
 		audio.clip = fire;
-		m_heatIncrement = 0.0f;
+		m_heatIncrement = 0.02f;
 		m_capacity = int.MaxValue;
 		m_ammo = m_capacity;
 	}
