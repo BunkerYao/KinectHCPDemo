@@ -4,6 +4,7 @@ using System.Collections;
 // ------------------------------------------------------
 // 描述：加农炮弹
 // ------------------------------------------------------
+[RequireComponent (typeof(AudioSource))]
 public class CannonShell : Bullet {
 	private float m_initialSpeed;
 	private float m_explosionRadius;
@@ -45,7 +46,10 @@ public class CannonShell : Bullet {
 	private void applyDamage(IDamageable victim, float t){
 		// Damage decreases linearly by distance
 		float distFactor = Mathf.Lerp (baseDamage, 0.0f, t);
-		float damageTaken = distFactor * (1.0f - victim.defenseFactor) * (1.0f + editHeavyArmorAddPercentage);
+		float damageTaken = distFactor * (1.0f - victim.defenseFactor);
+		if (victim.isHeavyArmored){
+			damageTaken *= 1.0f + editHeavyArmorAddPercentage;
+		}
 		victim.decreaseHealth (damageTaken);
 	}
 
@@ -62,7 +66,7 @@ public class CannonShell : Bullet {
 			if (isValidTarget(c.tag)){
 				Vector3 vec = c.transform.position - transform.position;
 				float dist = vec.magnitude;
-				float t = (float)dist / m_explosionRadius;
+				float t = dist / m_explosionRadius;
 				// If blow things away
 				if (editBlowAway){
 					Rigidbody rb = c.GetComponent<Rigidbody>();

@@ -42,7 +42,6 @@ public class RegularBullet : Bullet {
 					IDamageable victim = hit.transform.GetComponent<Damageable>();
 					if (notFriendlyFire(victim))
 						applyDamage(victim);
-					return;
 				}
 			}
 			// Destroy the bullet if hit nothing

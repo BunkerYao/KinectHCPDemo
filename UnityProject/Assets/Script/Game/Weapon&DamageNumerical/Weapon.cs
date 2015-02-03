@@ -92,6 +92,8 @@ public abstract class Weapon : MonoBehaviour, IWeapon {
 		                                      bulletInitialTrans.rotation) as GameObject;
 		firedBullet.GetComponent<Bullet> ().shot (isPlayerWeapon);
 		// Update weapon state
+		if (onShot != null)
+			onShot ();
 		m_heat += m_heatIncrement;
 		if (m_heat >= 1.0f){ 
 			m_heat = 1.0f;
@@ -106,8 +108,6 @@ public abstract class Weapon : MonoBehaviour, IWeapon {
 				onAmmoOut();
 		}
 		m_timeSinceLastShot = 0.0f;
-		if (onShot != null)
-			onShot ();
 		return true;
 	}
 
@@ -122,7 +122,7 @@ public abstract class Weapon : MonoBehaviour, IWeapon {
 		return true;
 	}
 
-	void Update()
+	protected void updateState()
 	{
 		if (isReloading){
 			m_reloadingTimeCount += Time.deltaTime;
@@ -141,6 +141,11 @@ public abstract class Weapon : MonoBehaviour, IWeapon {
 			m_heat = 0.0f;
 			m_isOverheat = false;
 		}
+	}
+
+	void Update()
+	{
+		updateState ();
 	}
 
 	// 射击事件
