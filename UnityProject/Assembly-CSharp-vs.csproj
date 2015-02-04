@@ -66,9 +66,11 @@
      <Compile Include="Assets\Script\Game\Weapon&amp;DamageNumerical\IBullet.cs" />
      <Compile Include="Assets\Script\Game\Weapon&amp;DamageNumerical\IDamageable.cs" />
      <Compile Include="Assets\Script\Game\Weapon&amp;DamageNumerical\IWeapon.cs" />
+     <Compile Include="Assets\Script\Game\Weapon&amp;DamageNumerical\MissileLauncher.cs" />
      <Compile Include="Assets\Script\Game\Weapon&amp;DamageNumerical\RegularBullet.cs" />
      <Compile Include="Assets\Script\Game\Weapon&amp;DamageNumerical\RegularGun.cs" />
      <Compile Include="Assets\Script\Game\Weapon&amp;DamageNumerical\Test\DamageableState.cs" />
+     <Compile Include="Assets\Script\Game\Weapon&amp;DamageNumerical\Test\MissileLauncherState.cs" />
      <Compile Include="Assets\Script\Game\Weapon&amp;DamageNumerical\Test\TargetMove.cs" />
      <Compile Include="Assets\Script\Game\Weapon&amp;DamageNumerical\Test\TestInput.cs" />
      <Compile Include="Assets\Script\Game\Weapon&amp;DamageNumerical\Test\WeaponState.cs" />

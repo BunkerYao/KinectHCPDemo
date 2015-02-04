@@ -36,7 +36,6 @@ public class TrackingMissile : Bullet {
 	public float editActivateDelay;
 	public float editFuelDecrement;
 	public float editHeavyArmorAddPercentage;
-	public Transform editTargetTrans;
 
 	void Awake()
 	{
@@ -50,8 +49,8 @@ public class TrackingMissile : Bullet {
 		m_fuelDecrement = editFuelDecrement;
 		m_timeSinceShot = 0.0f;
 		sphereCollider = GetComponent<SphereCollider> ();
-		sphereCollider.radius = 0.001f;							// 避免检测到与枪支的触发
-		sphereCollider.isTrigger = true;
+		//sphereCollider.radius = 0.001f;							// 避免检测到与枪支的触发
+		//sphereCollider.isTrigger = true;
 	}
 
 	override public void shot(bool isPlayerBullet){
@@ -62,8 +61,7 @@ public class TrackingMissile : Bullet {
 		rigidbody.useGravity = false;
 		rigidbody.velocity = transform.forward * m_force;
 		rigidbody.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
-		targetTrans = editTargetTrans;
-		enabled = true;
+		sphereCollider.isTrigger = false;
 	}
 
 	void Update()
@@ -76,6 +74,7 @@ public class TrackingMissile : Bullet {
 				// 油量耗尽
 				rigidbody.useGravity = true;
 				sphereCollider.radius = 0.001f;
+				sphereCollider.isTrigger = false;
 				m_isActivated = false;
 				m_isEngineWorking = false;
 			}
@@ -85,7 +84,7 @@ public class TrackingMissile : Bullet {
 			if (m_timeSinceShot >= m_activateDelay){
 				// 激活导弹
 				m_isActivated = true;
-				sphereCollider.isTrigger = false;
+				sphereCollider.isTrigger = true;
 				sphereCollider.radius = m_detonateRadius;
 				// 记录下速度大小
 				m_speed = rigidbody.velocity.magnitude;
@@ -128,12 +127,12 @@ public class TrackingMissile : Bullet {
 		victim.decreaseHealth (damageTaken);
 	}
 		
-	void OnCollisionEnter(Collision collision)
+	void OnTriggerEnter(Collider collider)
 	{
 		if (m_isActivated){
-			if (isValidTarget(collision.collider.tag)){
+			if (isValidTarget(collider.tag)){
 				// 判断是不是目标
-				if (collision.collider.transform == m_targetTrans){
+				if (collider.transform == m_targetTrans){
 					Collider[] colliders = Physics.OverlapSphere (transform.position, m_explosionRadius);
 					foreach (Collider c in colliders){
 						if (isValidTarget(c.tag)){

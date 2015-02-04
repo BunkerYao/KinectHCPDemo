@@ -14,7 +14,7 @@ public class TestInput : MonoBehaviour {
 			testWeapon.shoot();
 		}
 		if (Input.GetAxis("Fire2") > 0.0f) {
-			testWeapon.reload(30);
+			testWeapon.reload(1);
 		}
 	}	
 }

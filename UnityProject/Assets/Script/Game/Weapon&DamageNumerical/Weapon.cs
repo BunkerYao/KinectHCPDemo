@@ -18,6 +18,7 @@ public abstract class Weapon : MonoBehaviour, IWeapon {
 	private bool m_isOverheat;
 	protected bool m_isPlayerWeapon;
 	private int m_newAmmoNumber;
+	protected GameObject m_firedBullet;					// 被发射出去的子弹
 
 	public float heat {
 		get { return m_heat; }
@@ -91,6 +92,7 @@ public abstract class Weapon : MonoBehaviour, IWeapon {
 		                                      bulletInitialTrans.position,
 		                                      bulletInitialTrans.rotation) as GameObject;
 		firedBullet.GetComponent<Bullet> ().shot (isPlayerWeapon);
+		m_firedBullet = firedBullet;
 		// Update weapon state
 		if (onShot != null)
 			onShot ();

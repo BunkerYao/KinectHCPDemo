@@ -22,7 +22,7 @@ public class StateLabel : MonoBehaviour {
 		get { return m_additionalText; }
 	}
 
-	protected virtual void printLabel (string foldedText, string fullText)
+	protected virtual void printLabel (string foldedText, string additionalText)
 	{
 		GUI.contentColor = textColor;
 		if (Vector3.Dot(transform.position - cam.transform.position, cam.transform.forward) < 0.0f) 

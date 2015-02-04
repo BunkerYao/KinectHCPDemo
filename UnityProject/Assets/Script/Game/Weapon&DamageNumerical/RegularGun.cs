@@ -24,7 +24,7 @@ public class RegularGun : Weapon
 		return false;
 	}
 
-	protected void doOverheatAction()
+	protected void playOverheatAudio()
 	{
 		if (audio_overheat != null){
 			audio.clip = audio_overheat;
@@ -32,7 +32,7 @@ public class RegularGun : Weapon
 		}
 	}
 
-	protected void doShootAction()
+	protected void playShootAudio()
 	{
 		if (audio_fire != null){
 			audio.clip = audio_fire;
@@ -45,8 +45,8 @@ public class RegularGun : Weapon
 		initState ();
 		if (editIsFullAmmo)
 			m_ammo = m_capacity;
-		onOverheat += doOverheatAction;
-		onShot += doShootAction;
+		onOverheat += playOverheatAudio;
+		onShot += playShootAudio;
 	}	
 }
 
