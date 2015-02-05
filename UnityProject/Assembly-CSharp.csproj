@@ -80,6 +80,7 @@
      <Compile Include="Assets\Script\KinectCoordinate.cs" />
      <Compile Include="Assets\Script\StereoDisplay.cs" />
      <Compile Include="Assets\Script\StereoProjection.cs" />
+     <Compile Include="Assets\SimpleParticlePack\Scripts\ParticleTester.cs" />
      <None Include="Assets\Asset\Shaders\Normal-Diffuse.shader" />
      <None Include="Assets\Asset\Shaders\ColorSeperateBlend.shader" />
  <Reference Include="UnityEngine.UI">

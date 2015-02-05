@@ -5,6 +5,7 @@ using System.Collections;
 // 描述：跟踪导弹
 // ------------------------------------------------------
 [RequireComponent (typeof(SphereCollider))]
+[RequireComponent (typeof(AudioSource))]
 public class TrackingMissile : Bullet {
 	private float m_force;
 	private float m_speed;
@@ -36,6 +37,9 @@ public class TrackingMissile : Bullet {
 	public float editActivateDelay;
 	public float editFuelDecrement;
 	public float editHeavyArmorAddPercentage;
+	public AudioClip audio_explosion;
+	public AudioClip audio_launching;
+	public ParticleSystem explosionParticle;
 
 	void Awake()
 	{
@@ -62,6 +66,12 @@ public class TrackingMissile : Bullet {
 		rigidbody.velocity = transform.forward * m_force;
 		rigidbody.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
 		sphereCollider.isTrigger = false;
+		if (audio_launching != null){
+			audio.rolloffMode = AudioRolloffMode.Logarithmic;
+			audio.clip = audio_launching;
+			audio.Play();
+		}
+		particleSystem.Play ();
 	}
 
 	void Update()
@@ -77,6 +87,11 @@ public class TrackingMissile : Bullet {
 				sphereCollider.isTrigger = false;
 				m_isActivated = false;
 				m_isEngineWorking = false;
+				// 停止发射尾烟
+				particleSystem.emissionRate = 0.0f;
+				// 关掉灯光
+				if (light != null)
+					light.enabled = false;
 			}
 		}
 		if (!m_isActivated){
@@ -142,7 +157,24 @@ public class TrackingMissile : Bullet {
 							applyDamage(victim, t);
 						}
 					}
-					Destroy (gameObject);
+					// 将刚体速度清零
+					rigidbody.velocity = Vector3.zero;
+					// 关闭网格渲染
+					renderer.enabled = false;
+					// 关掉灯光
+					if (light != null)
+						light.enabled = false;
+					// 播放爆炸音效
+					if (audio_explosion != null){
+						audio.rolloffMode = AudioRolloffMode.Linear;
+						audio.clip = audio_explosion;
+						audio.Play();
+					}
+					// 播放爆炸动画
+					explosionParticle.Play();
+					Destroy(gameObject, m_lifeTime);
+					// 关闭这个脚本
+					enabled = false;
 				}
 			}
 		}

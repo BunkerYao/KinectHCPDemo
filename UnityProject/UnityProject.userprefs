@@ -1,18 +1,14 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Script\Game\Weapon&amp;DamageNumerical\Weapon.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Script\Game\Weapon&amp;DamageNumerical\TrackingMissile.cs">
     <Files>
-      <File FileName="Assets\Script\Game\Weapon&amp;DamageNumerical\CannonShell.cs" Line="10" Column="34" />
-      <File FileName="Assets\Script\Game\Weapon&amp;DamageNumerical\TrackingMissile.cs" Line="1" Column="1" />
-      <File FileName="Assets\Script\Game\Weapon&amp;DamageNumerical\Bullet.cs" Line="1" Column="1" />
-      <File FileName="Assets\Script\Game\Weapon&amp;DamageNumerical\RegularBullet.cs" Line="1" Column="1" />
+      <File FileName="Assets\Script\Game\Weapon&amp;DamageNumerical\Test\MissileLauncherState.cs" Line="35" Column="32" />
+      <File FileName="Assets\Script\Game\Weapon&amp;DamageNumerical\TrackingMissile.cs" Line="161" Column="31" />
+      <File FileName="Assets\Script\Game\Weapon&amp;DamageNumerical\MissileLauncher.cs" Line="66" Column="3" />
       <File FileName="Assets\Script\Game\Weapon&amp;DamageNumerical\RegularGun.cs" Line="1" Column="1" />
-      <File FileName="Assets\Script\Game\Weapon&amp;DamageNumerical\MissileLauncher.cs" Line="26" Column="27" />
-      <File FileName="Assets\Script\Game\Weapon&amp;DamageNumerical\Weapon.cs" Line="20" Column="30" />
-      <File FileName="Assets\Script\Game\Weapon&amp;DamageNumerical\Test\TestInput.cs" Line="1" Column="1" />
-      <File FileName="Assets\Script\Game\Weapon&amp;DamageNumerical\Test\WeaponState.cs" Line="25" Column="3" />
-      <File FileName="Assets\Script\Game\Utilities\StateLabel.cs" Line="25" Column="77" />
-      <File FileName="Assets\Script\Game\Weapon&amp;DamageNumerical\Test\MissileLauncherState.cs" Line="30" Column="3" />
+      <File FileName="Assets\Script\Game\Weapon&amp;DamageNumerical\Bullet.cs" Line="1" Column="1" />
+      <File FileName="Assets\Script\Game\Weapon&amp;DamageNumerical\RegularBullet.cs" Line="34" Column="48" />
+      <File FileName="Assets\Script\Game\Weapon&amp;DamageNumerical\Test\TargetMove.cs" Line="23" Column="36" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -5,9 +5,9 @@ using System.Collections;
 // 描述：使测试目标移动
 // ------------------------------------------------------
 public class TargetMove : MonoBehaviour {
+	public float m_radius = 5.0f;
 	private Vector3 m_center;
 	private Vector3 m_newPos;
-	private float m_radius = 5.0f;
 	private float m_angle;
 		
 	void Start()
@@ -20,6 +20,6 @@ public class TargetMove : MonoBehaviour {
 		m_newPos.z = Mathf.Sin (m_angle) * m_radius + m_center.z;
 		m_newPos.x = Mathf.Cos (m_angle) * m_radius + m_center.x;
 		transform.position = m_newPos;
-		m_angle += Time.deltaTime;
+		m_angle += Time.deltaTime * 0.1f;
 	}
 }

@@ -62,6 +62,7 @@ public class MissileLauncher : RegularGun {
 		onFoundCandidate += playWaitForLockOnAudio;
 		onLockedOn += playLockedOnAudio;
 		onLostTarget += playLostTargetAudio;
+		onShot += base.playShootAudio;
 
 		if (editIsFullAmmo)
 			m_ammo = m_capacity;
