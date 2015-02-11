@@ -19,6 +19,9 @@ public abstract class Weapon : MonoBehaviour, IWeapon {
 	protected bool m_isPlayerWeapon;
 	private int m_newAmmoNumber;
 	protected GameObject m_firedBullet;					// 被发射出去的子弹
+	protected ParticleSystem m_muzzleParticle;			// 枪口粒子效果
+	protected Light m_muzzleLight;						// 枪口光源
+	private float m_muzzleLightDurationLeft;
 
 	public float heat {
 		get { return m_heat; }
@@ -59,6 +62,7 @@ public abstract class Weapon : MonoBehaviour, IWeapon {
 	public float editReloadingTime;
 	public int editCapacity;
 	public bool editIsPlayerWeapon;
+	public float editMuzzleLightDuration;					// 枪口火光持续时间	
 	
 	public GameObject bulletPrefab;
 	public Transform bulletInitialTrans;					// 子弹的初始变换
@@ -80,6 +84,9 @@ public abstract class Weapon : MonoBehaviour, IWeapon {
 		m_timeSinceLastShot = m_fireInterval + 1.0f;
 		m_reloadingTimeCount = 0.0f;
 		m_isReloading = false;
+		m_muzzleParticle = bulletInitialTrans.GetComponent<ParticleSystem> ();
+		m_muzzleLight = bulletInitialTrans.GetComponent<Light> ();
+		m_muzzleLightDurationLeft = 0.0f;
 	}
 
 	virtual public bool shoot(){
@@ -110,6 +117,11 @@ public abstract class Weapon : MonoBehaviour, IWeapon {
 				onAmmoOut();
 		}
 		m_timeSinceLastShot = 0.0f;
+		m_muzzleLightDurationLeft = editMuzzleLightDuration;
+		// 播放枪口粒子效果
+		if (m_muzzleParticle != null){
+			m_muzzleParticle.Play();
+		}
 		return true;
 	}
 
@@ -142,6 +154,12 @@ public abstract class Weapon : MonoBehaviour, IWeapon {
 		if (m_heat <= 0.0f){
 			m_heat = 0.0f;
 			m_isOverheat = false;
+		}
+		// 控制枪口火光
+		m_muzzleLightDurationLeft = Mathf.Clamp (m_muzzleLightDurationLeft - Time.deltaTime,
+		                                        0.0f, 1000.0f);
+		if (m_muzzleLight != null){
+			m_muzzleLight.intensity = Mathf.Lerp(0.0f, 1.0f, m_muzzleLightDurationLeft / editMuzzleLightDuration);
 		}
 	}
 

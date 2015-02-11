@@ -7,7 +7,6 @@ using System.Collections;
 public class MissileLauncher : RegularGun {
 	public float lockOnConeAngle;						// 锁定区域圆锥角大小，当候选目标离开此区域时即丢失目标
 	public float lockOnTime;							// 需要将候选目标保持在锁定区域内的时间
-	public float scanRadius;							// 扫描圈的半径
 	public AudioClip audio_waitForLockOn;
 	public AudioClip audio_lockedOn;
 	public AudioClip audio_lostTarget;

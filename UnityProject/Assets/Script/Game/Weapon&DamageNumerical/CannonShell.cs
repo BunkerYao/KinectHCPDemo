@@ -21,6 +21,8 @@ public class CannonShell : Bullet {
 	public float editHeavyArmorAddPercentage;
 	public bool editBlowAway;
 	public float editBlowForce;
+	public AudioClip audio_explosion;
+	public ParticleSystem explosionParticle;
 
 	void Awake()
 	{
@@ -67,7 +69,7 @@ public class CannonShell : Bullet {
 				Vector3 vec = c.transform.position - transform.position;
 				float dist = vec.magnitude;
 				float t = dist / m_explosionRadius;
-				// If blow things away
+				// If blow things awaya
 				if (editBlowAway){
 					Rigidbody rb = c.GetComponent<Rigidbody>();
 					if (rb){
@@ -79,6 +81,23 @@ public class CannonShell : Bullet {
 					applyDamage(victim, t);
 			}
 		}
-		Destroy (gameObject);
+		// 将刚体速度清零
+		rigidbody.velocity = Vector3.zero;
+		rigidbody.useGravity = false;
+		// 关闭网格渲染
+		renderer.enabled = false;
+		// 关掉灯光
+		if (light != null)
+			light.enabled = false;
+		// 播放爆炸音效
+		if (audio_explosion != null){
+			audio.clip = audio_explosion;
+			audio.Play();
+		}
+		// 播放爆炸动画
+		explosionParticle.Play ();
+		Destroy (gameObject, m_lifeTime);
+		// 关闭这个脚本
+		enabled = false;
 	}		
 }

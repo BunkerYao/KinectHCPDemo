@@ -76,12 +76,15 @@
      <Compile Include="Assets\Script\Game\Weapon&amp;DamageNumerical\Test\WeaponState.cs" />
      <Compile Include="Assets\Script\Game\Weapon&amp;DamageNumerical\TrackingMissile.cs" />
      <Compile Include="Assets\Script\Game\Weapon&amp;DamageNumerical\Weapon.cs" />
+     <Compile Include="Assets\Script\Game\Weapon&amp;DamageNumerical\WeaponControl.cs" />
+     <Compile Include="Assets\Script\HandTracker.cs" />
      <Compile Include="Assets\Script\HeadTracker.cs" />
      <Compile Include="Assets\Script\KinectCoordinate.cs" />
      <Compile Include="Assets\Script\StereoDisplay.cs" />
      <Compile Include="Assets\Script\StereoProjection.cs" />
      <Compile Include="Assets\SimpleParticlePack\Scripts\ParticleTester.cs" />
      <None Include="Assets\Asset\Shaders\Normal-Diffuse.shader" />
+     <None Include="Assets\Asset\Shaders\BDCS.shader" />
      <None Include="Assets\Asset\Shaders\ColorSeperateBlend.shader" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.0/UnityEngine.UI.dll</HintPath>
@@ -90,8 +93,6 @@
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
       <Project>{FDE690F1-626F-FFA0-5754-E83120972A79}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
-    <ProjectReference Include="Assembly-UnityScript-firstpass.unityproj">
-      <Project>{5120E47E-05CF-77CB-C2BE-2B2453982161}</Project>      <Name>Assembly-UnityScript-firstpass</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
