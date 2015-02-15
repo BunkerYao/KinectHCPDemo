@@ -23,7 +23,10 @@ Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-																																																															GlobalSection(MonoDevelopProperties) = preSolution
+																																																																														GlobalSection(MonoDevelopProperties) = preSolution
+=======
+																																																																																	GlobalSection(MonoDevelopProperties) = preSolution
+>>>>>>> parent of 4cb36e4... Revert "添加了很多美术资源；重新制作了测试场景"
 		StartupItem = Assembly-CSharp.csproj
 		Policies = $0
 		$0.TextStylePolicy = $1
